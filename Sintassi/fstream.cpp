@@ -23,7 +23,7 @@ int main()
 	//input da file con l'operatore " >> " che vuol dire "HEY sposta dal file dentro la variabile" (verso destra)
 	fin>>oneTimeIateAbagel;
 	//output su file con l'operatore " << " che vuol dire "HEY sposta dalla variabile verso il file" (verso sinistra)
-	fout<<oneTimeIateAbagel;
+	fout<<oneTimeIateAbagel; 
 	
 	return 0;
 }
