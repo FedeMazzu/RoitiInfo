@@ -1,0 +1,78 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+ifstream fin("input.txt");
+ofstream fout("output.txt");
+
+int N,M,P;
+vector<bool> VIS;
+	
+void topological_sort(int nodo, stack<int>& out, vector<vector<int> >& G){
+	
+	VIS[nodo] = true;
+	
+	if(G[nodo].size() == 0){
+		out.push(nodo);
+		return;
+	}
+		
+	for(int i=0;i<G[nodo].size();i++){
+		if(VIS[G[nodo][i]])
+			continue;
+		else
+			topological_sort(G[nodo][i], out, G);
+	}
+	
+	out.push(nodo);
+	return ;
+}
+
+int main(){
+	int ans = 0;
+	int maxPersoncine = 0;
+	fin>>N>>M>>P;
+	
+	vector<vector<int> > G;
+	vector<float> personcine;
+	personcine.resize(N);
+	G.resize(N);
+	VIS.resize(N);
+	for(int i=0;i<N;i++){
+		VIS[i] = false;
+		personcine[i] = 0;
+	}	
+	
+	for(int i=0;i<M;i++){
+		int a,b;
+		fin>>a>>b;
+		G[a].push_back(b);
+	}
+	
+	stack<int> out;
+	topological_sort(0, out, G);
+	
+	personcine[out.top()] = 100000;
+	while(!out.empty()){
+		int nodo = out.top();
+		out.pop();
+		
+		if(G[nodo].size() == 0){
+			if(personcine[nodo] > maxPersoncine){
+				maxPersoncine = personcine[nodo];
+				ans = nodo;
+			}
+			continue; 
+		}
+		
+		int val = personcine[nodo];
+		val /= G[nodo].size();
+		 
+		for(int i=0;i<G[nodo].size();i++){
+			personcine[G[nodo][i]] += val;
+		}
+	}
+	
+	fout<<ans;
+	return 0;
+}
