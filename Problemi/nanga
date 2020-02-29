@@ -1,0 +1,35 @@
+#include <fstream>
+#include <map>
+using namespace std;
+
+ifstream fin("input.txt");
+ofstream fout("output.txt");
+
+main(){
+    int n;
+    map<int,int> reg;
+    int h;
+    int contatore=1;
+    int save;
+    int s_contatore=0;
+    int successivo;
+    
+    fin>>n;
+    for(int i=0; i<n; i++)
+	{
+        fin>>h;
+        if(i==0)
+        	h=5000+h;
+        else
+        	h=successivo+h;
+        reg[h]+=contatore;
+        if(reg[h]>s_contatore)
+		{
+            s_contatore=reg[h];
+            save=h;
+        }
+        successivo=h;
+    }
+    fout<<save;
+    return 0;
+}
