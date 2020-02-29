@@ -37,7 +37,7 @@ void dijkstra(){
 				Q.push(make_pair(dist[G[n][i].first],G[n][i].first));	
 			}
 		}
-    }	
+    	}	
 }
 
  main(){
