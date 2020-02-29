@@ -6,14 +6,14 @@ using namespace std;
 
 int main()
 {
-	stack<int> pila;		//localit‡ in provincia di Gressan(Val d'Aosta)
+	stack<int> pila;		//localit√† in provincia di Gressan(Val d'Aosta)
 	queue<int> coda;
 	
 	/*
 		Pensate di impilare dei piatti uno sull'altro. Per qualche motivo non potete togliere i piatti da sotto ma solo da sopra.
 		Bene.
 		Se impilate i piatti numero 1, 2, e 3 - poi per tornare indietro dovete togliere prima il 3 poi il 2 e poi l'1
-		quindi l'ultimo elemento inserito Ë il primo che consideriamo per fare delle operazioni, prima di passare al successivo.
+		quindi l'ultimo elemento inserito √® il primo che consideriamo per fare delle operazioni, prima di passare al successivo.
 		
 		ok, lol
 		
@@ -21,8 +21,8 @@ int main()
 		Bene.
 		Se mettete in coda le persone 1, 2, e 3 - poi queste devono essere considerate in ordine: prima passa 1 poi 2 e poi 3
 		
-		Pila: il primo elemento inserito Ë l'ultimo che viene esaminato
-		Coda: il primo elemento inserito Ë il primo che viene esaminato
+		Pila: il primo elemento inserito √® l'ultimo che viene esaminato
+		Coda: il primo elemento inserito √® il primo che viene esaminato
 		
 	*/
 	
@@ -36,7 +36,7 @@ int main()
 		coda.push(i+1);
 	
 	cout<<"Output pila:\n";
-	while(!pila.empty())		//pila.empty() Ë una funzione che ci dice se la pila Ë vuota. !pila.empty se la pila contiene qualcosa
+	while(!pila.empty())		//pila.empty() √® una funzione che ci dice se la pila √® vuota. !pila.empty se la pila contiene qualcosa
 	{
 		//pila.top() prende l'elemento da esaminare; pila.pop() toglie l'elemento esaminato 
 		cout<<pila.top()<<" ";
